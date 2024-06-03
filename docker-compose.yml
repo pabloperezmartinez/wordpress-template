@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: docker-template.mysql
+    volumes:
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wpuser
+      MYSQL_ROOT_PASSWORD: root
+
+  web:
+    domainname: docker-template.store
+    container_name: docker-template.store
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - db
+    volumes:
+      - .:/var/www/html/
+      #- ./php-settings:/usr/local/etc/php/conf.d
+      - ./apache-conf/vhost.conf:/etc/apache2/sites-enabled/000-default.conf
+    depends_on:
+      - db

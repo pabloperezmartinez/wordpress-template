@@ -1,0 +1,57 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+
+@red            : #E83B3D;
+@orange         : #E39149;
+@blue           : #4D86A0;
+@black          : #1d1d1b;
+@primaryColor   : @red;
+@secondaryColor : @black;
+
+/*-------------------
+     Page
+--------------------*/
+@pageBackground      : @black;
+
+
+/*-------------------
+     Links 
+--------------------*/
+@linkColor          : @primaryColor;
+
+/*-------------------
+     Checkbox
+--------------------*/
+@checkboxActiveBackground     : @primaryColor;
+@checkboxActiveBorderColor    : @primaryColor;
+@checkboxActiveCheckColor     : @white;
+
+/* Focused Checkbox */
+@checkboxActiveFocusBackground     : @primaryColorFocus;
+@checkboxActiveFocusBorderColor    : @primaryColorFocus;
+@checkboxActiveFocusCheckColor     : @white;
+@checkboxTransition                : none;
+
+/* Radio */
+@radioActiveBackground   : @white;
+@radioActiveBorderColor  : @primaryColor;
+@radioActiveBulletColor  : @primaryColor;
+
+/* Focused Radio */
+@radioActiveFocusBackground   : @white;
+@radioActiveFocusBorderColor  : @primaryColorFocus;
+@radioActiveFocusBulletColor  : @primaryColorFocus;
+
+/* Slider */
+@sliderOnLineColor:  @primaryColor;
+/* Focused Slider */
+@sliderOnFocusLineColor: @primaryColorFocus;
+
+/**
+ * FONTS
+ */
+@importGoogleFonts : true;
+@googleFontFamily  : 'Open+Sans:400italic,400';
+@pageFont          : 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
