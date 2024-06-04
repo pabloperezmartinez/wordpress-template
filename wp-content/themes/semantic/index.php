@@ -22,7 +22,7 @@
 	</script>
 
 	<div class="ui container">
-		<div class="ui inverted segment">
+		<div class="ui segment" style="min-height:500px">
 			<h2 class="ui primary dividing header">Posts</h2>
 			<div class="ui stackable four column grid">
 				<?php foreach ($ultimos as $post):?>

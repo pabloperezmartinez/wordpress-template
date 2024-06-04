@@ -20,3 +20,10 @@ npm install
 ~~~
 docker-compose up
 ~~~
+3. En la administración de wordpress se deberá seleccionar el tema 'Semantic'
+# Modificar tema
+Se pueden realizar distintas modificaciones en el tema como colores y otras personalizaciones
+## Colores
+Se pueden agregar colores en el archivo `semantic/src/site/globals/site.variables`. A continuación se añaden las guías desde Fomantic UI: https://fomantic-ui.com/usage/theming.html
+## Clases CSS Personalizadas
+Se pueden agregar clases personalizadas en el archivo `semantic/src/site/globals/site.overrides`

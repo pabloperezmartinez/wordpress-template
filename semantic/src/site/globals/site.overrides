@@ -4,3 +4,8 @@
     right:20px;
     bottom: 20px;
 }
+
+.logo-margin {
+    margin-top: 24px:
+    margin-bottom: 24px;
+}

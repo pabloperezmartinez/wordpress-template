@@ -25,7 +25,7 @@
     $meta_label_name = get_post_meta(get_the_ID(), "label_name", true);
     ?>
     <div>
-        <h2 class="ui inverted dividing header">
+        <h2 class="ui primary dividing header">
             <div class="content">
                 <?php if ($meta_artist_name != null) echo $meta_artist_name . " - " ?><?php the_title(); ?>
                 <?php if ($meta_label_name != null): ?>

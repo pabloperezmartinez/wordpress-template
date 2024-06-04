@@ -1,21 +1,14 @@
 {
-  "name": "maquinadeltiempo",
+  "name": "wordpress-semanitcui-docker-template",
   "version": "1.0.0",
-  "description": "<!DOCTYPE html> <html lang=\"en\"> <head> \t<meta name=\"viewport\" content=\"width=device-width\" /> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> \t<title>WordPress &#8250; ReadMe</title> \t<link rel=\"stylesheet\" href=\"wp-admin/css/install.css?ver=20100228\" type=\"text/css\" /> </head> <body> <h1 id=\"logo\"> \t<a href=\"https://wordpress.org/\"><img alt=\"WordPress\" src=\"wp-admin/images/wordpress-logo.png\" /></a> </h1> <p style=\"text-align: center\">Semantic Personal Publishing Platform</p>",
+  "description": "El objetivo del presente proyecto es tener una base para poder generar de manera rápida un sitio de wordpress con Fomantic UI que sea fácil de personalizar, de mantener y de modificar. El sitio se encuentra contenerizado y orquestado por docker-compose",
   "main": "index.js",
-  "dependencies": {
-    "fomantic-ui": "^2.8.4",
-    "gulp": "^4.0.2"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://pabloperezmartinez@bitbucket.org/pabloperezmartinez/maquinadeltiempo.git"
-  },
-  "author": "",
+  "author": "Pablo Pérez Martínez",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/pabloperezmartinez/maquinadeltiempo#readme"
+  "dependencies": {
+    "fomantic-ui": "^2.9.3"
+  }
 }

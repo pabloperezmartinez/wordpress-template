@@ -21,13 +21,13 @@ if (have_posts()) : ?>
         <?php /***** subategories links *******/
         if (!empty($terms) && !is_front_page()): ?>
             <div class="three wide column">
-                <div class="ui inverted accordion" id="cat_accordion">
+                <div class="ui accordion" id="cat_accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
                         Categorías
                     </div>
                     <div class="content">
-                        <div class="ui inverted link list">
+                        <div class="ui link list">
                             <?php foreach ( $terms as $term ): ?>
                                 <a href="<?php echo get_term_link( $term, $taxonomy ); ?>" class="item"><?php echo $term->name ?></a>
                             <?php endforeach; ?>
@@ -38,7 +38,7 @@ if (have_posts()) : ?>
         <?php endif; 
         /******** Products list block ********/ ?>
         <div class="<?php echo (!empty($terms) && !is_front_page()) ? "thirteen" : "" ;?> wide column">
-            <ul class="ui three inverted stackable doubling centered link cards">
+            <ul class="ui three stackable doubling centered link cards">
                 <?php
                 while (have_posts()) : the_post();
                     global $product;
@@ -97,7 +97,7 @@ if (have_posts()) : ?>
     else :
     wp_reset_postdata(); ?>
     <div class="ui container">
-        <div class="ui placeholder inverted segment">
+        <div class="ui placeholder segment">
             <div class="ui icon header">
                 <i class="blue frown icon"></i>
                 No se encuentran productos

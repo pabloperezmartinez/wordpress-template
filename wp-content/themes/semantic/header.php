@@ -15,14 +15,14 @@
     <?php if (is_front_page()) : ?>
         <title><?php bloginfo('name'); ?></title>
         <meta property="og:title" content="<?php bloginfo('name'); ?>"/>
-        <meta property="og:description" content="La Venganza del Análogo"/>
+        <meta property="og:description" content="Descripción de tu empresa"/>
         <meta property="og:type" content="article"/>
         <meta property="og:url" content="<?php echo site_url(); ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@ccjpv"/>
         <meta name="twitter:title" content="<?php bloginfo('name'); ?>"/>
-        <meta name="twitter:text:description" content="La Venganza del Análogo"/>
+        <meta name="twitter:text:description" content="Descripción de tu empresa"/>
         <meta property="og:image" content="<?php bloginfo('stylesheet_directory'); ?>/img/logo-redes.jpg"/>
         <meta name="twitter:image" content="<?php bloginfo('stylesheet_directory'); ?>/img/logo-redes.jpg"/>
     
@@ -50,14 +50,14 @@
     <?php else : ?>
         <title><?php bloginfo('name'); ?></title>
         <meta property="og:title" content="<?php bloginfo('name'); ?>"/>
-        <meta property="og:description" content="La Venganza del Análogo"/>
+        <meta property="og:description" content="Descripción de tu empresa"/>
         <meta property="og:type" content="article"/>
         <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@ccjpv"/>
         <meta name="twitter:title" content="<?php bloginfo('name'); ?>"/>
-        <meta name="twitter:text:description" content="La Venganza del Análogo"/>
+        <meta name="twitter:text:description" content="Descripción de tu empresa"/>
         <meta property="og:image" content="<?php bloginfo('stylesheet_directory'); ?>/img/logo-redes.jpg"/>
         <meta name="twitter:image" content="<?php bloginfo('stylesheet_directory'); ?>/img/logo-redes.jpg"/>
     <?php endif;
@@ -70,26 +70,25 @@
 
 <body>
 <header>
-    <div class="ui inverted segment" style="border-radius: 0px; margin:0px;">
-        <br>
-        <div class="ui container">
-            <img src="<?php bloginfo('stylesheet_directory'); ?>/img/header-logo.svg" class="ui big centered image"><br>
-        </div>
+    <div class="ui container">
+        <?php 
+        /***************** LOGO ********************/
+        ?>
+        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" class="ui small centered image logo-margin">
     </div>
-    <div class="ui red inverted segment"
-         style="border-radius: 0px; padding: 4px; margin-bottom:0vh; margin-top:0px;">
-        <nav class="ui container">
+    <div class="ui container">
+        <nav>
             <?php
             $items = wp_get_nav_menu_items('Main Menu');
             $item_number_array = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']; ?>
-            <div class="ui top attached stackable <?php echo $item_number_array[count($items)]; ?> red inverted menu">
+            <div class="ui top attached stackable <?php echo $item_number_array[count($items)]; ?> blue inverted menu">
                 <!-- ITEMS -->
 
                 <?php
                 foreach ($items as $item): ?>
                     <?php if ($item->menu_item_parent == 0) { ?>
                         <a class="item" href="<?php echo $item->url ?>"
-                           id="menu<?php echo $item->ID; ?>"><?php echo $item->title ?></a>
+                        id="menu<?php echo $item->ID; ?>"><?php echo $item->title ?></a>
                     <?php } ?>
                 <?php endforeach; ?>
                 <div class="right menu">
@@ -106,7 +105,7 @@
                     <div class="item">
                         <div class="ui action input">
                             <input id="search_input" name="s" type="text" placeholder="Buscar..."
-                                   data-content="Ingresa lo que quieres encontrar en nuestra tienda">
+                                data-content="Ingresa lo que quieres encontrar en nuestra tienda">
                             <button id="search_button" class="ui black icon button" type="submit">
                                 <i class="search icon"></i>
                             </button>
@@ -158,5 +157,3 @@
         endif;
     endforeach ?>
 </header>
-
-<p>profeshor</p>

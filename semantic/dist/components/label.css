@@ -1,10 +1,10 @@
 /*!
- * # Fomantic-UI - Label
- * http://github.com/fomantic/Fomantic-UI/
+ * # Fomantic-UI 2.9.3 - Label
+ * https://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
- * http://opensource.org/licenses/MIT
+ * https://opensource.org/licenses/MIT
  *
  */
 
@@ -18,7 +18,7 @@
   line-height: 1;
   vertical-align: baseline;
   margin: 0 0.14285714em;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   background-image: none;
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
@@ -26,7 +26,6 @@
   font-weight: bold;
   border: 0 solid transparent;
   border-radius: 0.28571429rem;
-  -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
 .ui.label:first-child {
@@ -46,7 +45,6 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.1s opacity ease;
   transition: 0.1s opacity ease;
 }
 .ui.label > a:hover {
@@ -61,7 +59,7 @@ a.ui.label {
 }
 
 /* Icon */
-.ui.left.icon.label > .icon,
+.ui.ui[class*="left icon"].label > .icon,
 .ui.label > .icon {
   width: auto;
   margin: 0 0.75em 0 0;
@@ -85,7 +83,6 @@ a.ui.label {
   cursor: pointer;
   font-size: 0.92857143em;
   opacity: 0.5;
-  -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
 .ui.label > .close.icon:hover,
@@ -94,9 +91,13 @@ a.ui.label {
 }
 
 /* Backward compatible positioning */
-.ui.label.left.icon > .close.icon,
-.ui.label.left.icon > .delete.icon {
+.ui.label[class*="left icon"] > .close.icon,
+.ui.label[class*="left icon"] > .delete.icon {
   margin: 0 0.5em 0 0;
+}
+.ui.label[class*="left icon"] > .close.icon.right,
+.ui.label[class*="left icon"] > .delete.icon.right {
+  margin: 0 0 0 0.5em;
 }
 .ui.label:not(.icon) > .close.icon,
 .ui.label:not(.icon) > .delete.icon {
@@ -109,22 +110,20 @@ a.ui.label {
 }
 
 /* Right Side Icon */
-.ui.right.icon.label > .icon {
+.ui[class*="right icon"].label > .icon {
   margin: 0 0 0 0.75em;
 }
 
-/*-------------------
+/* -------------------
        Group
---------------------*/
-
+-------------------- */
 .ui.labels > .label {
   margin: 0 0.5em 0.5em 0;
 }
 
-/*-------------------
+/* -------------------
        Coupling
---------------------*/
-
+-------------------- */
 .ui.header > .ui.label {
   margin-top: -0.29165em;
 }
@@ -154,6 +153,21 @@ a.ui.label {
   margin-top: 0;
   margin-bottom: 2rem !important;
 }
+.ui.segment:not(.basic) > .ui.top.attached.label {
+  margin-top: -1px;
+}
+.ui.segment:not(.basic) > .ui.bottom.attached.label {
+  margin-bottom: -1px;
+}
+.ui.segment:not(.basic) > .ui.attached.label:not(.right) {
+  margin-left: -1px;
+}
+.ui.segment:not(.basic) > .ui.right.attached.label {
+  margin-right: -1px;
+}
+.ui.segment:not(.basic) > .ui.attached.label:not(.left):not(.right) {
+  width: calc(100% + 2px);
+}
 
 
 /*******************************
@@ -161,17 +175,19 @@ a.ui.label {
 *******************************/
 
 .ui.image.label {
-  width: auto !important;
+  width: auto;
   margin-top: 0;
   margin-bottom: 0;
   max-width: 9999px;
   vertical-align: baseline;
   text-transform: none;
-  background: #E8E8E8;
+  background: #e8e8e8;
   padding: 0.5833em 0.833em 0.5833em 0.5em;
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
+}
+.ui.image.label.attached:not(.basic) {
+  padding: 0.5833em 0.833em 0.5833em 0.5em;
 }
 .ui.image.label img {
   display: inline-block;
@@ -186,11 +202,18 @@ a.ui.label {
   padding: 0.5833em 0.833em;
   border-radius: 0 0.28571429rem 0.28571429rem 0;
 }
+.ui.bottom.attached.image.label:not(.right) > img,
+.ui.top.right.attached.image.label > img {
+  border-top-left-radius: 0;
+}
+.ui.top.attached.image.label:not(.right) > img,
+.ui.bottom.right.attached.image.label > img {
+  border-bottom-left-radius: 0;
+}
 
-/*-------------------
-         Tag
---------------------*/
-
+/* -------------------
+             Tag
+    -------------------- */
 .ui.tag.labels .label,
 .ui.tag.label {
   margin-left: 1em;
@@ -198,55 +221,49 @@ a.ui.label {
   padding-left: 1.5em;
   padding-right: 1.5em;
   border-radius: 0 0.28571429rem 0.28571429rem 0;
-  -webkit-transition: none;
   transition: none;
 }
-.ui.tag.labels .label:before,
-.ui.tag.label:before {
+.ui.tag.labels .label::before,
+.ui.tag.label::before {
   position: absolute;
-  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-          transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
   top: 50%;
   right: 100%;
-  content: '';
+  content: "";
   background-color: inherit;
   background-image: none;
   width: 1.56em;
   height: 1.56em;
-  -webkit-transition: none;
   transition: none;
 }
-.ui.tag.labels .label:after,
-.ui.tag.label:after {
+.ui.tag.labels .label::after,
+.ui.tag.label::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 50%;
   left: -0.25em;
   margin-top: -0.25em;
-  background-color: #FFFFFF;
+  background-color: #fff;
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
-.ui.basic.tag.labels .label:before,
-.ui.basic.tag.label:before {
+.ui.basic.tag.labels .label::before,
+.ui.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
   right: calc(100% + 1px);
 }
-.ui.basic.tag.labels .label:after,
-.ui.basic.tag.label:after {
-  -webkit-box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.8);
-          box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.8);
+.ui.basic.tag.labels .label::after,
+.ui.basic.tag.label::after {
+  box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.8);
 }
 
-/*-------------------
-    Corner Label
---------------------*/
-
+/* -------------------
+        Corner Label
+    -------------------- */
 .ui.corner.label {
   position: absolute;
   top: 0;
@@ -254,11 +271,10 @@ a.ui.label {
   margin: 0;
   padding: 0;
   text-align: center;
-  border-color: #E8E8E8;
+  border-color: #e8e8e8;
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.1s ease;
   transition: border-color 0.1s ease;
 }
 
@@ -266,7 +282,7 @@ a.ui.label {
 .ui.corner.label {
   background-color: transparent !important;
 }
-.ui.corner.label:after {
+.ui.corner.label::after {
   position: absolute;
   content: "";
   right: 0;
@@ -280,7 +296,6 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0 solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.1s ease;
   transition: border-color 0.1s ease;
 }
 .ui.corner.label .icon {
@@ -295,11 +310,11 @@ a.ui.label {
 
 /* Left Corner */
 .ui.left.corner.label,
-.ui.left.corner.label:after {
+.ui.left.corner.label::after {
   right: auto;
   left: 0;
 }
-.ui.left.corner.label:after {
+.ui.left.corner.label::after {
   border-top: 4em solid transparent;
   border-right: 4em solid transparent;
   border-bottom: 0 solid transparent;
@@ -321,22 +336,19 @@ a.ui.label {
   left: -1px;
 }
 
-/*-------------------
-         Ribbon
-  --------------------*/
-
+/* -------------------
+           Ribbon
+    -------------------- */
 .ui.ribbon.label {
   position: relative;
   margin: 0;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
   min-width: max-content;
   border-radius: 0 0.28571429rem 0.28571429rem 0;
   border-color: rgba(0, 0, 0, 0.15);
 }
-.ui.ribbon.label:after {
+.ui.ribbon.label::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 100%;
   left: 0;
   background-color: transparent;
@@ -385,11 +397,10 @@ a.ui.label {
 /* Right Ribbon */
 .ui[class*="right ribbon"].label {
   text-align: left;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  transform: translateX(-100%);
   border-radius: 0.28571429rem 0 0 0.28571429rem;
 }
-.ui[class*="right ribbon"].label:after {
+.ui[class*="right ribbon"].label::after {
   left: auto;
   right: 0;
   border-style: solid;
@@ -397,8 +408,22 @@ a.ui.label {
   border-color: transparent;
   border-top-color: inherit;
 }
+.ui.ui.center.ribbon.label {
+  top: calc(50% - 1em);
+  z-index: 1;
+}
+.ui.bottom.ribbon.label::after {
+  bottom: 100%;
+  top: auto;
+  border-width: 1.2em 1.2em 0 0;
+}
+.ui.bottom[class*="right ribbon"].label::after {
+  border-width: 1.2em 0 0 1.2em;
+  border-color: transparent;
+  border-left-color: inherit;
+}
 
-/* Inside Table */
+/* Inside Image */
 .ui.image > .ribbon.label,
 .ui.card .image > .ribbon.label {
   position: absolute;
@@ -413,6 +438,11 @@ a.ui.label {
   left: calc(100% + -0.05rem + 1.2em);
   padding-left: 0.833em;
 }
+.ui.card .image > .ui.bottom.ribbon.label,
+.ui.image > .ui.bottom.ribbon.label {
+  bottom: 1rem;
+  top: auto;
+}
 
 /* Inside Table */
 .ui.table td > .ui.ribbon.label {
@@ -423,10 +453,9 @@ a.ui.label {
   padding-left: 0.833em;
 }
 
-/*-------------------
-        Attached
-  --------------------*/
-
+/* -------------------
+          Attached
+    -------------------- */
 .ui[class*="top attached"].label,
 .ui.attached.label {
   width: 100%;
@@ -444,7 +473,7 @@ a.ui.label {
 }
 .ui[class*="top left attached"].label {
   width: auto;
-  margin-top: 0 !important;
+  margin-top: 0;
   border-radius: 0.21428571rem 0 0.28571429rem 0;
 }
 .ui[class*="top right attached"].label {
@@ -474,77 +503,73 @@ a.ui.label {
 *******************************/
 
 
-/*-------------------
+/* -------------------
       Disabled
---------------------*/
-
+-------------------- */
+.ui.disabled.labels .label,
 .ui.label.disabled {
-  opacity: 0.5;
+  opacity: 0.45;
+  pointer-events: none;
 }
 
-/*-------------------
+/* -------------------
         Hover
---------------------*/
-
+-------------------- */
 .ui.labels a.label:hover,
 a.ui.label:hover {
-  background-color: #E0E0E0;
-  border-color: #E0E0E0;
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
   background-image: none;
   color: rgba(0, 0, 0, 0.8);
 }
-.ui.labels a.label:hover:before,
-a.ui.label:hover:before {
+.ui.labels a.label:hover::before,
+a.ui.label:hover::before {
   color: rgba(0, 0, 0, 0.8);
 }
 
-/*-------------------
+/* -------------------
         Active
---------------------*/
-
+-------------------- */
 .ui.active.label {
-  background-color: #D0D0D0;
-  border-color: #D0D0D0;
+  background-color: #d0d0d0;
+  border-color: #d0d0d0;
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
-.ui.active.label:before {
-  background-color: #D0D0D0;
+.ui.active.label::before {
+  background-color: #d0d0d0;
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
 
-/*-------------------
+/* -------------------
      Active Hover
---------------------*/
-
+-------------------- */
 .ui.labels a.active.label:hover,
 a.ui.active.label:hover {
-  background-color: #C8C8C8;
-  border-color: #C8C8C8;
+  background-color: #c8c8c8;
+  border-color: #c8c8c8;
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
-.ui.labels a.active.label:hover:before,
-a.ui.active.label:hover:before {
-  background-color: #C8C8C8;
+.ui.labels a.active.label:hover::before,
+a.ui.active.label:hover::before {
+  background-color: #c8c8c8;
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
 
-/*-------------------
+/* -------------------
       Visible
---------------------*/
-
+-------------------- */
 .ui.labels.visible .label,
 .ui.label.visible:not(.dropdown) {
   display: inline-block !important;
 }
 
-/*-------------------
+/* -------------------
       Hidden
---------------------*/
-
+-------------------- */
 .ui.labels.hidden .label,
 .ui.label.hidden {
   display: none !important;
@@ -556,49 +581,57 @@ a.ui.active.label:hover:before {
 *******************************/
 
 
-/*-------------------
-          Basic
-  --------------------*/
-
+/* -------------------
+            Basic
+    -------------------- */
 .ui.basic.labels .label,
 .ui.basic.label {
-  background: none #FFFFFF;
+  background: none #fff;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
+  padding-top: calc(0.5833em - 1px);
+  padding-bottom: calc(0.5833em - 1px);
+  padding-right: calc(0.833em - 1px);
+}
+.ui.basic.labels:not(.tag):not(.image):not(.ribbon) .label,
+.ui.basic.label:not(.tag):not(.image):not(.ribbon) {
+  padding-left: calc(0.833em - 1px);
+}
+.ui.basic.image.label {
+  padding-left: calc(0.5em - 1px);
 }
 
 /* Link */
 .ui.basic.labels a.label:hover,
 a.ui.basic.label:hover {
   text-decoration: none;
-  background: none #FFFFFF;
-  color: #f60104;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  background: none #fff;
+  color: #0874c5;
+  box-shadow: none;
 }
 
 /* Pointing */
-.ui.basic.pointing.label:before {
+.ui.basic.pointing.label::before {
   border-color: inherit;
 }
 
-/*-------------------
-         Fluid
-  --------------------*/
-
+/* -------------------
+           Fluid
+    -------------------- */
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ui.centered.labels .label,
+.ui.centered.label {
+  text-align: center;
 }
 
-/*-------------------
-         Inverted
-  --------------------*/
-
+/* -------------------
+           Inverted
+    -------------------- */
 .ui.inverted.labels .label,
 .ui.inverted.label {
   color: rgba(255, 255, 255, 0.9);
@@ -608,8 +641,7 @@ a.ui.basic.label:hover {
   border-color: #b5b5b5;
 }
 .ui.inverted.corner.label:hover {
-  border-color: #E8E8E8;
-  -webkit-transition: none;
+  border-color: #e8e8e8;
   transition: none;
 }
 .ui.inverted.basic.labels .label,
@@ -619,52 +651,51 @@ a.ui.basic.label:hover {
   background: #1d1d1b;
 }
 .ui.inverted.basic.label:hover {
-  color: #E83B3D;
+  color: #2185d0;
 }
 
-/*-------------------
+/* -------------------
        Colors
---------------------*/
-
+-------------------- */
 .ui.primary.labels .label,
 .ui.ui.ui.primary.label {
-  background-color: #E83B3D;
-  border-color: #E83B3D;
+  background-color: #2185d0;
+  border-color: #2185d0;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Link */
 .ui.primary.labels a.label:hover,
 a.ui.ui.ui.primary.label:hover {
-  background-color: #ef1b1d;
-  border-color: #ef1b1d;
-  color: #FFFFFF;
+  background-color: #1678c2;
+  border-color: #1678c2;
+  color: #fff;
 }
 
 /* Ribbon */
 .ui.ui.ui.primary.ribbon.label {
-  border-color: #d7191b;
+  border-color: #1a69a4;
 }
 
 /* Basic */
 .ui.basic.labels .primary.label,
 .ui.ui.ui.basic.primary.label {
-  background: none #FFFFFF;
-  border-color: #E83B3D;
-  color: #E83B3D;
+  background: none #fff;
+  border-color: #2185d0;
+  color: #2185d0;
 }
 .ui.basic.labels a.primary.label:hover,
 a.ui.ui.ui.basic.primary.label:hover {
-  background: none #FFFFFF;
-  border-color: #ef1b1d;
-  color: #ef1b1d;
+  background: none #fff;
+  border-color: #1678c2;
+  color: #1678c2;
 }
 
 /* Inverted */
 .ui.inverted.labels .primary.label,
 .ui.ui.ui.inverted.primary.label {
-  background-color: #54C8FF;
-  border-color: #54C8FF;
+  background-color: #54c8ff;
+  border-color: #54c8ff;
   color: #1d1d1b;
 }
 
@@ -685,8 +716,8 @@ a.ui.ui.ui.inverted.primary.label:hover {
 .ui.inverted.basic.labels .primary.label,
 .ui.ui.ui.inverted.basic.primary.label {
   background-color: #1d1d1b;
-  border-color: #54C8FF;
-  color: #54C8FF;
+  border-color: #54c8ff;
+  color: #54c8ff;
 }
 .ui.inverted.basic.labels a.primary.label:hover,
 a.ui.ui.ui.inverted.basic.primary.label:hover {
@@ -698,10 +729,10 @@ a.ui.ui.ui.inverted.basic.primary.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .primary.label,
 .ui.ui.ui.inverted.primary.basic.tag.label {
-  border: 1px solid #54C8FF;
+  border: 1px solid #54c8ff;
 }
-.ui.inverted.basic.tag.labels .primary.label:before,
-.ui.ui.ui.inverted.primary.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .primary.label::before,
+.ui.ui.ui.inverted.primary.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -720,7 +751,7 @@ a.ui.ui.ui.inverted.basic.primary.label:hover {
 a.ui.ui.ui.secondary.label:hover {
   background-color: #2a2a27;
   border-color: #2a2a27;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -731,13 +762,13 @@ a.ui.ui.ui.secondary.label:hover {
 /* Basic */
 .ui.basic.labels .secondary.label,
 .ui.ui.ui.basic.secondary.label {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #1d1d1b;
   color: #1d1d1b;
 }
 .ui.basic.labels a.secondary.label:hover,
 a.ui.ui.ui.basic.secondary.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #2a2a27;
   color: #2a2a27;
 }
@@ -782,8 +813,8 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 .ui.ui.ui.inverted.secondary.basic.tag.label {
   border: 1px solid #545454;
 }
-.ui.inverted.basic.tag.labels .secondary.label:before,
-.ui.ui.ui.inverted.secondary.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .secondary.label::before,
+.ui.ui.ui.inverted.secondary.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -794,7 +825,7 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 .ui.ui.ui.red.label {
   background-color: #E83B3D;
   border-color: #E83B3D;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Link */
@@ -802,7 +833,7 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 a.ui.ui.ui.red.label:hover {
   background-color: #ef1b1d;
   border-color: #ef1b1d;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -813,13 +844,13 @@ a.ui.ui.ui.red.label:hover {
 /* Basic */
 .ui.basic.labels .red.label,
 .ui.ui.ui.basic.red.label {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #E83B3D;
   color: #E83B3D;
 }
 .ui.basic.labels a.red.label:hover,
 a.ui.ui.ui.basic.red.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #ef1b1d;
   color: #ef1b1d;
 }
@@ -827,8 +858,8 @@ a.ui.ui.ui.basic.red.label:hover {
 /* Inverted */
 .ui.inverted.labels .red.label,
 .ui.ui.ui.inverted.red.label {
-  background-color: #FF695E;
-  border-color: #FF695E;
+  background-color: #ff695e;
+  border-color: #ff695e;
   color: #1d1d1b;
 }
 
@@ -849,8 +880,8 @@ a.ui.ui.ui.inverted.red.label:hover {
 .ui.inverted.basic.labels .red.label,
 .ui.ui.ui.inverted.basic.red.label {
   background-color: #1d1d1b;
-  border-color: #FF695E;
-  color: #FF695E;
+  border-color: #ff695e;
+  color: #ff695e;
 }
 .ui.inverted.basic.labels a.red.label:hover,
 a.ui.ui.ui.inverted.basic.red.label:hover {
@@ -862,10 +893,10 @@ a.ui.ui.ui.inverted.basic.red.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .red.label,
 .ui.ui.ui.inverted.red.basic.tag.label {
-  border: 1px solid #FF695E;
+  border: 1px solid #ff695e;
 }
-.ui.inverted.basic.tag.labels .red.label:before,
-.ui.ui.ui.inverted.red.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .red.label::before,
+.ui.ui.ui.inverted.red.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -876,7 +907,7 @@ a.ui.ui.ui.inverted.basic.red.label:hover {
 .ui.ui.ui.orange.label {
   background-color: #E39149;
   border-color: #E39149;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Link */
@@ -884,7 +915,7 @@ a.ui.ui.ui.inverted.basic.red.label:hover {
 a.ui.ui.ui.orange.label:hover {
   background-color: #e8832a;
   border-color: #e8832a;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -895,13 +926,13 @@ a.ui.ui.ui.orange.label:hover {
 /* Basic */
 .ui.basic.labels .orange.label,
 .ui.ui.ui.basic.orange.label {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #E39149;
   color: #E39149;
 }
 .ui.basic.labels a.orange.label:hover,
 a.ui.ui.ui.basic.orange.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #e8832a;
   color: #e8832a;
 }
@@ -909,8 +940,8 @@ a.ui.ui.ui.basic.orange.label:hover {
 /* Inverted */
 .ui.inverted.labels .orange.label,
 .ui.ui.ui.inverted.orange.label {
-  background-color: #FF851B;
-  border-color: #FF851B;
+  background-color: #ff851b;
+  border-color: #ff851b;
   color: #1d1d1b;
 }
 
@@ -931,8 +962,8 @@ a.ui.ui.ui.inverted.orange.label:hover {
 .ui.inverted.basic.labels .orange.label,
 .ui.ui.ui.inverted.basic.orange.label {
   background-color: #1d1d1b;
-  border-color: #FF851B;
-  color: #FF851B;
+  border-color: #ff851b;
+  color: #ff851b;
 }
 .ui.inverted.basic.labels a.orange.label:hover,
 a.ui.ui.ui.inverted.basic.orange.label:hover {
@@ -944,10 +975,10 @@ a.ui.ui.ui.inverted.basic.orange.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .orange.label,
 .ui.ui.ui.inverted.orange.basic.tag.label {
-  border: 1px solid #FF851B;
+  border: 1px solid #ff851b;
 }
-.ui.inverted.basic.tag.labels .orange.label:before,
-.ui.ui.ui.inverted.orange.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .orange.label::before,
+.ui.ui.ui.inverted.orange.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -956,9 +987,9 @@ a.ui.ui.ui.inverted.basic.orange.label:hover {
 }
 .ui.yellow.labels .label,
 .ui.ui.ui.yellow.label {
-  background-color: #FBBD08;
-  border-color: #FBBD08;
-  color: #FFFFFF;
+  background-color: #fbbd08;
+  border-color: #fbbd08;
+  color: #fff;
 }
 
 /* Link */
@@ -966,7 +997,7 @@ a.ui.ui.ui.inverted.basic.orange.label:hover {
 a.ui.ui.ui.yellow.label:hover {
   background-color: #eaae00;
   border-color: #eaae00;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -977,13 +1008,13 @@ a.ui.ui.ui.yellow.label:hover {
 /* Basic */
 .ui.basic.labels .yellow.label,
 .ui.ui.ui.basic.yellow.label {
-  background: none #FFFFFF;
-  border-color: #FBBD08;
-  color: #FBBD08;
+  background: none #fff;
+  border-color: #fbbd08;
+  color: #fbbd08;
 }
 .ui.basic.labels a.yellow.label:hover,
 a.ui.ui.ui.basic.yellow.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #eaae00;
   color: #eaae00;
 }
@@ -991,8 +1022,8 @@ a.ui.ui.ui.basic.yellow.label:hover {
 /* Inverted */
 .ui.inverted.labels .yellow.label,
 .ui.ui.ui.inverted.yellow.label {
-  background-color: #FFE21F;
-  border-color: #FFE21F;
+  background-color: #ffe21f;
+  border-color: #ffe21f;
   color: #1d1d1b;
 }
 
@@ -1013,8 +1044,8 @@ a.ui.ui.ui.inverted.yellow.label:hover {
 .ui.inverted.basic.labels .yellow.label,
 .ui.ui.ui.inverted.basic.yellow.label {
   background-color: #1d1d1b;
-  border-color: #FFE21F;
-  color: #FFE21F;
+  border-color: #ffe21f;
+  color: #ffe21f;
 }
 .ui.inverted.basic.labels a.yellow.label:hover,
 a.ui.ui.ui.inverted.basic.yellow.label:hover {
@@ -1026,10 +1057,10 @@ a.ui.ui.ui.inverted.basic.yellow.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .yellow.label,
 .ui.ui.ui.inverted.yellow.basic.tag.label {
-  border: 1px solid #FFE21F;
+  border: 1px solid #ffe21f;
 }
-.ui.inverted.basic.tag.labels .yellow.label:before,
-.ui.ui.ui.inverted.yellow.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .yellow.label::before,
+.ui.ui.ui.inverted.yellow.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1038,9 +1069,9 @@ a.ui.ui.ui.inverted.basic.yellow.label:hover {
 }
 .ui.olive.labels .label,
 .ui.ui.ui.olive.label {
-  background-color: #B5CC18;
-  border-color: #B5CC18;
-  color: #FFFFFF;
+  background-color: #b5cc18;
+  border-color: #b5cc18;
+  color: #fff;
 }
 
 /* Link */
@@ -1048,7 +1079,7 @@ a.ui.ui.ui.inverted.basic.yellow.label:hover {
 a.ui.ui.ui.olive.label:hover {
   background-color: #a7bd0d;
   border-color: #a7bd0d;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1059,13 +1090,13 @@ a.ui.ui.ui.olive.label:hover {
 /* Basic */
 .ui.basic.labels .olive.label,
 .ui.ui.ui.basic.olive.label {
-  background: none #FFFFFF;
-  border-color: #B5CC18;
-  color: #B5CC18;
+  background: none #fff;
+  border-color: #b5cc18;
+  color: #b5cc18;
 }
 .ui.basic.labels a.olive.label:hover,
 a.ui.ui.ui.basic.olive.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #a7bd0d;
   color: #a7bd0d;
 }
@@ -1073,8 +1104,8 @@ a.ui.ui.ui.basic.olive.label:hover {
 /* Inverted */
 .ui.inverted.labels .olive.label,
 .ui.ui.ui.inverted.olive.label {
-  background-color: #D9E778;
-  border-color: #D9E778;
+  background-color: #d9e778;
+  border-color: #d9e778;
   color: #1d1d1b;
 }
 
@@ -1095,8 +1126,8 @@ a.ui.ui.ui.inverted.olive.label:hover {
 .ui.inverted.basic.labels .olive.label,
 .ui.ui.ui.inverted.basic.olive.label {
   background-color: #1d1d1b;
-  border-color: #D9E778;
-  color: #D9E778;
+  border-color: #d9e778;
+  color: #d9e778;
 }
 .ui.inverted.basic.labels a.olive.label:hover,
 a.ui.ui.ui.inverted.basic.olive.label:hover {
@@ -1108,10 +1139,10 @@ a.ui.ui.ui.inverted.basic.olive.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .olive.label,
 .ui.ui.ui.inverted.olive.basic.tag.label {
-  border: 1px solid #D9E778;
+  border: 1px solid #d9e778;
 }
-.ui.inverted.basic.tag.labels .olive.label:before,
-.ui.ui.ui.inverted.olive.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .olive.label::before,
+.ui.ui.ui.inverted.olive.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1120,9 +1151,9 @@ a.ui.ui.ui.inverted.basic.olive.label:hover {
 }
 .ui.green.labels .label,
 .ui.ui.ui.green.label {
-  background-color: #21BA45;
-  border-color: #21BA45;
-  color: #FFFFFF;
+  background-color: #21ba45;
+  border-color: #21ba45;
+  color: #fff;
 }
 
 /* Link */
@@ -1130,7 +1161,7 @@ a.ui.ui.ui.inverted.basic.olive.label:hover {
 a.ui.ui.ui.green.label:hover {
   background-color: #16ab39;
   border-color: #16ab39;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1141,13 +1172,13 @@ a.ui.ui.ui.green.label:hover {
 /* Basic */
 .ui.basic.labels .green.label,
 .ui.ui.ui.basic.green.label {
-  background: none #FFFFFF;
-  border-color: #21BA45;
-  color: #21BA45;
+  background: none #fff;
+  border-color: #21ba45;
+  color: #21ba45;
 }
 .ui.basic.labels a.green.label:hover,
 a.ui.ui.ui.basic.green.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #16ab39;
   color: #16ab39;
 }
@@ -1155,8 +1186,8 @@ a.ui.ui.ui.basic.green.label:hover {
 /* Inverted */
 .ui.inverted.labels .green.label,
 .ui.ui.ui.inverted.green.label {
-  background-color: #2ECC40;
-  border-color: #2ECC40;
+  background-color: #2ecc40;
+  border-color: #2ecc40;
   color: #1d1d1b;
 }
 
@@ -1177,8 +1208,8 @@ a.ui.ui.ui.inverted.green.label:hover {
 .ui.inverted.basic.labels .green.label,
 .ui.ui.ui.inverted.basic.green.label {
   background-color: #1d1d1b;
-  border-color: #2ECC40;
-  color: #2ECC40;
+  border-color: #2ecc40;
+  color: #2ecc40;
 }
 .ui.inverted.basic.labels a.green.label:hover,
 a.ui.ui.ui.inverted.basic.green.label:hover {
@@ -1190,10 +1221,10 @@ a.ui.ui.ui.inverted.basic.green.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .green.label,
 .ui.ui.ui.inverted.green.basic.tag.label {
-  border: 1px solid #2ECC40;
+  border: 1px solid #2ecc40;
 }
-.ui.inverted.basic.tag.labels .green.label:before,
-.ui.ui.ui.inverted.green.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .green.label::before,
+.ui.ui.ui.inverted.green.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1202,9 +1233,9 @@ a.ui.ui.ui.inverted.basic.green.label:hover {
 }
 .ui.teal.labels .label,
 .ui.ui.ui.teal.label {
-  background-color: #00B5AD;
-  border-color: #00B5AD;
-  color: #FFFFFF;
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+  color: #fff;
 }
 
 /* Link */
@@ -1212,7 +1243,7 @@ a.ui.ui.ui.inverted.basic.green.label:hover {
 a.ui.ui.ui.teal.label:hover {
   background-color: #009c95;
   border-color: #009c95;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1223,13 +1254,13 @@ a.ui.ui.ui.teal.label:hover {
 /* Basic */
 .ui.basic.labels .teal.label,
 .ui.ui.ui.basic.teal.label {
-  background: none #FFFFFF;
-  border-color: #00B5AD;
-  color: #00B5AD;
+  background: none #fff;
+  border-color: #00b5ad;
+  color: #00b5ad;
 }
 .ui.basic.labels a.teal.label:hover,
 a.ui.ui.ui.basic.teal.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #009c95;
   color: #009c95;
 }
@@ -1237,8 +1268,8 @@ a.ui.ui.ui.basic.teal.label:hover {
 /* Inverted */
 .ui.inverted.labels .teal.label,
 .ui.ui.ui.inverted.teal.label {
-  background-color: #6DFFFF;
-  border-color: #6DFFFF;
+  background-color: #6dffff;
+  border-color: #6dffff;
   color: #1d1d1b;
 }
 
@@ -1259,8 +1290,8 @@ a.ui.ui.ui.inverted.teal.label:hover {
 .ui.inverted.basic.labels .teal.label,
 .ui.ui.ui.inverted.basic.teal.label {
   background-color: #1d1d1b;
-  border-color: #6DFFFF;
-  color: #6DFFFF;
+  border-color: #6dffff;
+  color: #6dffff;
 }
 .ui.inverted.basic.labels a.teal.label:hover,
 a.ui.ui.ui.inverted.basic.teal.label:hover {
@@ -1272,10 +1303,10 @@ a.ui.ui.ui.inverted.basic.teal.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .teal.label,
 .ui.ui.ui.inverted.teal.basic.tag.label {
-  border: 1px solid #6DFFFF;
+  border: 1px solid #6dffff;
 }
-.ui.inverted.basic.tag.labels .teal.label:before,
-.ui.ui.ui.inverted.teal.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .teal.label::before,
+.ui.ui.ui.inverted.teal.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1284,43 +1315,43 @@ a.ui.ui.ui.inverted.basic.teal.label:hover {
 }
 .ui.blue.labels .label,
 .ui.ui.ui.blue.label {
-  background-color: #4D86A0;
-  border-color: #4D86A0;
-  color: #FFFFFF;
+  background-color: #2185d0;
+  border-color: #2185d0;
+  color: #fff;
 }
 
 /* Link */
 .ui.blue.labels a.label:hover,
 a.ui.ui.ui.blue.label:hover {
-  background-color: #417992;
-  border-color: #417992;
-  color: #FFFFFF;
+  background-color: #1678c2;
+  border-color: #1678c2;
+  color: #fff;
 }
 
 /* Ribbon */
 .ui.ui.ui.blue.ribbon.label {
-  border-color: #3c697e;
+  border-color: #1a69a4;
 }
 
 /* Basic */
 .ui.basic.labels .blue.label,
 .ui.ui.ui.basic.blue.label {
-  background: none #FFFFFF;
-  border-color: #4D86A0;
-  color: #4D86A0;
+  background: none #fff;
+  border-color: #2185d0;
+  color: #2185d0;
 }
 .ui.basic.labels a.blue.label:hover,
 a.ui.ui.ui.basic.blue.label:hover {
-  background: none #FFFFFF;
-  border-color: #417992;
-  color: #417992;
+  background: none #fff;
+  border-color: #1678c2;
+  color: #1678c2;
 }
 
 /* Inverted */
 .ui.inverted.labels .blue.label,
 .ui.ui.ui.inverted.blue.label {
-  background-color: #54C8FF;
-  border-color: #54C8FF;
+  background-color: #54c8ff;
+  border-color: #54c8ff;
   color: #1d1d1b;
 }
 
@@ -1341,8 +1372,8 @@ a.ui.ui.ui.inverted.blue.label:hover {
 .ui.inverted.basic.labels .blue.label,
 .ui.ui.ui.inverted.basic.blue.label {
   background-color: #1d1d1b;
-  border-color: #54C8FF;
-  color: #54C8FF;
+  border-color: #54c8ff;
+  color: #54c8ff;
 }
 .ui.inverted.basic.labels a.blue.label:hover,
 a.ui.ui.ui.inverted.basic.blue.label:hover {
@@ -1354,10 +1385,10 @@ a.ui.ui.ui.inverted.basic.blue.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .blue.label,
 .ui.ui.ui.inverted.blue.basic.tag.label {
-  border: 1px solid #54C8FF;
+  border: 1px solid #54c8ff;
 }
-.ui.inverted.basic.tag.labels .blue.label:before,
-.ui.ui.ui.inverted.blue.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .blue.label::before,
+.ui.ui.ui.inverted.blue.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1366,9 +1397,9 @@ a.ui.ui.ui.inverted.basic.blue.label:hover {
 }
 .ui.violet.labels .label,
 .ui.ui.ui.violet.label {
-  background-color: #6435C9;
-  border-color: #6435C9;
-  color: #FFFFFF;
+  background-color: #6435c9;
+  border-color: #6435c9;
+  color: #fff;
 }
 
 /* Link */
@@ -1376,7 +1407,7 @@ a.ui.ui.ui.inverted.basic.blue.label:hover {
 a.ui.ui.ui.violet.label:hover {
   background-color: #5829bb;
   border-color: #5829bb;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1387,13 +1418,13 @@ a.ui.ui.ui.violet.label:hover {
 /* Basic */
 .ui.basic.labels .violet.label,
 .ui.ui.ui.basic.violet.label {
-  background: none #FFFFFF;
-  border-color: #6435C9;
-  color: #6435C9;
+  background: none #fff;
+  border-color: #6435c9;
+  color: #6435c9;
 }
 .ui.basic.labels a.violet.label:hover,
 a.ui.ui.ui.basic.violet.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #5829bb;
   color: #5829bb;
 }
@@ -1401,8 +1432,8 @@ a.ui.ui.ui.basic.violet.label:hover {
 /* Inverted */
 .ui.inverted.labels .violet.label,
 .ui.ui.ui.inverted.violet.label {
-  background-color: #A291FB;
-  border-color: #A291FB;
+  background-color: #a291fb;
+  border-color: #a291fb;
   color: #1d1d1b;
 }
 
@@ -1423,8 +1454,8 @@ a.ui.ui.ui.inverted.violet.label:hover {
 .ui.inverted.basic.labels .violet.label,
 .ui.ui.ui.inverted.basic.violet.label {
   background-color: #1d1d1b;
-  border-color: #A291FB;
-  color: #A291FB;
+  border-color: #a291fb;
+  color: #a291fb;
 }
 .ui.inverted.basic.labels a.violet.label:hover,
 a.ui.ui.ui.inverted.basic.violet.label:hover {
@@ -1436,10 +1467,10 @@ a.ui.ui.ui.inverted.basic.violet.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .violet.label,
 .ui.ui.ui.inverted.violet.basic.tag.label {
-  border: 1px solid #A291FB;
+  border: 1px solid #a291fb;
 }
-.ui.inverted.basic.tag.labels .violet.label:before,
-.ui.ui.ui.inverted.violet.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .violet.label::before,
+.ui.ui.ui.inverted.violet.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1448,9 +1479,9 @@ a.ui.ui.ui.inverted.basic.violet.label:hover {
 }
 .ui.purple.labels .label,
 .ui.ui.ui.purple.label {
-  background-color: #A333C8;
-  border-color: #A333C8;
-  color: #FFFFFF;
+  background-color: #a333c8;
+  border-color: #a333c8;
+  color: #fff;
 }
 
 /* Link */
@@ -1458,7 +1489,7 @@ a.ui.ui.ui.inverted.basic.violet.label:hover {
 a.ui.ui.ui.purple.label:hover {
   background-color: #9627ba;
   border-color: #9627ba;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1469,13 +1500,13 @@ a.ui.ui.ui.purple.label:hover {
 /* Basic */
 .ui.basic.labels .purple.label,
 .ui.ui.ui.basic.purple.label {
-  background: none #FFFFFF;
-  border-color: #A333C8;
-  color: #A333C8;
+  background: none #fff;
+  border-color: #a333c8;
+  color: #a333c8;
 }
 .ui.basic.labels a.purple.label:hover,
 a.ui.ui.ui.basic.purple.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #9627ba;
   color: #9627ba;
 }
@@ -1483,8 +1514,8 @@ a.ui.ui.ui.basic.purple.label:hover {
 /* Inverted */
 .ui.inverted.labels .purple.label,
 .ui.ui.ui.inverted.purple.label {
-  background-color: #DC73FF;
-  border-color: #DC73FF;
+  background-color: #dc73ff;
+  border-color: #dc73ff;
   color: #1d1d1b;
 }
 
@@ -1505,8 +1536,8 @@ a.ui.ui.ui.inverted.purple.label:hover {
 .ui.inverted.basic.labels .purple.label,
 .ui.ui.ui.inverted.basic.purple.label {
   background-color: #1d1d1b;
-  border-color: #DC73FF;
-  color: #DC73FF;
+  border-color: #dc73ff;
+  color: #dc73ff;
 }
 .ui.inverted.basic.labels a.purple.label:hover,
 a.ui.ui.ui.inverted.basic.purple.label:hover {
@@ -1518,10 +1549,10 @@ a.ui.ui.ui.inverted.basic.purple.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .purple.label,
 .ui.ui.ui.inverted.purple.basic.tag.label {
-  border: 1px solid #DC73FF;
+  border: 1px solid #dc73ff;
 }
-.ui.inverted.basic.tag.labels .purple.label:before,
-.ui.ui.ui.inverted.purple.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .purple.label::before,
+.ui.ui.ui.inverted.purple.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1530,9 +1561,9 @@ a.ui.ui.ui.inverted.basic.purple.label:hover {
 }
 .ui.pink.labels .label,
 .ui.ui.ui.pink.label {
-  background-color: #E03997;
-  border-color: #E03997;
-  color: #FFFFFF;
+  background-color: #e03997;
+  border-color: #e03997;
+  color: #fff;
 }
 
 /* Link */
@@ -1540,7 +1571,7 @@ a.ui.ui.ui.inverted.basic.purple.label:hover {
 a.ui.ui.ui.pink.label:hover {
   background-color: #e61a8d;
   border-color: #e61a8d;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1551,13 +1582,13 @@ a.ui.ui.ui.pink.label:hover {
 /* Basic */
 .ui.basic.labels .pink.label,
 .ui.ui.ui.basic.pink.label {
-  background: none #FFFFFF;
-  border-color: #E03997;
-  color: #E03997;
+  background: none #fff;
+  border-color: #e03997;
+  color: #e03997;
 }
 .ui.basic.labels a.pink.label:hover,
 a.ui.ui.ui.basic.pink.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #e61a8d;
   color: #e61a8d;
 }
@@ -1565,8 +1596,8 @@ a.ui.ui.ui.basic.pink.label:hover {
 /* Inverted */
 .ui.inverted.labels .pink.label,
 .ui.ui.ui.inverted.pink.label {
-  background-color: #FF8EDF;
-  border-color: #FF8EDF;
+  background-color: #ff8edf;
+  border-color: #ff8edf;
   color: #1d1d1b;
 }
 
@@ -1587,8 +1618,8 @@ a.ui.ui.ui.inverted.pink.label:hover {
 .ui.inverted.basic.labels .pink.label,
 .ui.ui.ui.inverted.basic.pink.label {
   background-color: #1d1d1b;
-  border-color: #FF8EDF;
-  color: #FF8EDF;
+  border-color: #ff8edf;
+  color: #ff8edf;
 }
 .ui.inverted.basic.labels a.pink.label:hover,
 a.ui.ui.ui.inverted.basic.pink.label:hover {
@@ -1600,10 +1631,10 @@ a.ui.ui.ui.inverted.basic.pink.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .pink.label,
 .ui.ui.ui.inverted.pink.basic.tag.label {
-  border: 1px solid #FF8EDF;
+  border: 1px solid #ff8edf;
 }
-.ui.inverted.basic.tag.labels .pink.label:before,
-.ui.ui.ui.inverted.pink.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .pink.label::before,
+.ui.ui.ui.inverted.pink.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1612,9 +1643,9 @@ a.ui.ui.ui.inverted.basic.pink.label:hover {
 }
 .ui.brown.labels .label,
 .ui.ui.ui.brown.label {
-  background-color: #A5673F;
-  border-color: #A5673F;
-  color: #FFFFFF;
+  background-color: #a5673f;
+  border-color: #a5673f;
+  color: #fff;
 }
 
 /* Link */
@@ -1622,7 +1653,7 @@ a.ui.ui.ui.inverted.basic.pink.label:hover {
 a.ui.ui.ui.brown.label:hover {
   background-color: #975b33;
   border-color: #975b33;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1633,13 +1664,13 @@ a.ui.ui.ui.brown.label:hover {
 /* Basic */
 .ui.basic.labels .brown.label,
 .ui.ui.ui.basic.brown.label {
-  background: none #FFFFFF;
-  border-color: #A5673F;
-  color: #A5673F;
+  background: none #fff;
+  border-color: #a5673f;
+  color: #a5673f;
 }
 .ui.basic.labels a.brown.label:hover,
 a.ui.ui.ui.basic.brown.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #975b33;
   color: #975b33;
 }
@@ -1647,8 +1678,8 @@ a.ui.ui.ui.basic.brown.label:hover {
 /* Inverted */
 .ui.inverted.labels .brown.label,
 .ui.ui.ui.inverted.brown.label {
-  background-color: #D67C1C;
-  border-color: #D67C1C;
+  background-color: #d67c1c;
+  border-color: #d67c1c;
   color: #1d1d1b;
 }
 
@@ -1669,8 +1700,8 @@ a.ui.ui.ui.inverted.brown.label:hover {
 .ui.inverted.basic.labels .brown.label,
 .ui.ui.ui.inverted.basic.brown.label {
   background-color: #1d1d1b;
-  border-color: #D67C1C;
-  color: #D67C1C;
+  border-color: #d67c1c;
+  color: #d67c1c;
 }
 .ui.inverted.basic.labels a.brown.label:hover,
 a.ui.ui.ui.inverted.basic.brown.label:hover {
@@ -1682,10 +1713,10 @@ a.ui.ui.ui.inverted.basic.brown.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .brown.label,
 .ui.ui.ui.inverted.brown.basic.tag.label {
-  border: 1px solid #D67C1C;
+  border: 1px solid #d67c1c;
 }
-.ui.inverted.basic.tag.labels .brown.label:before,
-.ui.ui.ui.inverted.brown.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .brown.label::before,
+.ui.ui.ui.inverted.brown.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1696,7 +1727,7 @@ a.ui.ui.ui.inverted.basic.brown.label:hover {
 .ui.ui.ui.grey.label {
   background-color: #767676;
   border-color: #767676;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Link */
@@ -1704,7 +1735,7 @@ a.ui.ui.ui.inverted.basic.brown.label:hover {
 a.ui.ui.ui.grey.label:hover {
   background-color: #838383;
   border-color: #838383;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1715,13 +1746,13 @@ a.ui.ui.ui.grey.label:hover {
 /* Basic */
 .ui.basic.labels .grey.label,
 .ui.ui.ui.basic.grey.label {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #767676;
   color: #767676;
 }
 .ui.basic.labels a.grey.label:hover,
 a.ui.ui.ui.basic.grey.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #838383;
   color: #838383;
 }
@@ -1729,8 +1760,8 @@ a.ui.ui.ui.basic.grey.label:hover {
 /* Inverted */
 .ui.inverted.labels .grey.label,
 .ui.ui.ui.inverted.grey.label {
-  background-color: #DCDDDE;
-  border-color: #DCDDDE;
+  background-color: #dcddde;
+  border-color: #dcddde;
   color: #1d1d1b;
 }
 
@@ -1739,7 +1770,7 @@ a.ui.ui.ui.basic.grey.label:hover {
 a.ui.ui.ui.inverted.grey.label:hover {
   background-color: #c2c4c5;
   border-color: #c2c4c5;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Inverted Ribbon */
@@ -1751,7 +1782,7 @@ a.ui.ui.ui.inverted.grey.label:hover {
 .ui.inverted.basic.labels .grey.label,
 .ui.ui.ui.inverted.basic.grey.label {
   background-color: #1d1d1b;
-  border-color: #DCDDDE;
+  border-color: #dcddde;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.basic.labels a.grey.label:hover,
@@ -1763,10 +1794,10 @@ a.ui.ui.ui.inverted.basic.grey.label:hover {
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .grey.label,
 .ui.ui.ui.inverted.grey.basic.tag.label {
-  border: 1px solid #DCDDDE;
+  border: 1px solid #dcddde;
 }
-.ui.inverted.basic.tag.labels .grey.label:before,
-.ui.ui.ui.inverted.grey.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .grey.label::before,
+.ui.ui.ui.inverted.grey.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1777,7 +1808,7 @@ a.ui.ui.ui.inverted.basic.grey.label:hover {
 .ui.ui.ui.black.label {
   background-color: #1d1d1b;
   border-color: #1d1d1b;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Link */
@@ -1785,7 +1816,7 @@ a.ui.ui.ui.inverted.basic.grey.label:hover {
 a.ui.ui.ui.black.label:hover {
   background-color: #2a2a27;
   border-color: #2a2a27;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Ribbon */
@@ -1796,13 +1827,13 @@ a.ui.ui.ui.black.label:hover {
 /* Basic */
 .ui.basic.labels .black.label,
 .ui.ui.ui.basic.black.label {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #1d1d1b;
   color: #1d1d1b;
 }
 .ui.basic.labels a.black.label:hover,
 a.ui.ui.ui.basic.black.label:hover {
-  background: none #FFFFFF;
+  background: none #fff;
   border-color: #2a2a27;
   color: #2a2a27;
 }
@@ -1820,7 +1851,7 @@ a.ui.ui.ui.basic.black.label:hover {
 a.ui.ui.ui.inverted.black.label:hover {
   background-color: #000000;
   border-color: #000000;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* Inverted Ribbon */
@@ -1846,8 +1877,8 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
 .ui.ui.ui.inverted.black.basic.tag.label {
   border: 1px solid #545454;
 }
-.ui.inverted.basic.tag.labels .black.label:before,
-.ui.ui.ui.inverted.black.basic.tag.label:before {
+.ui.inverted.basic.tag.labels .black.label::before,
+.ui.ui.ui.inverted.black.basic.tag.label::before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
@@ -1855,10 +1886,9 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
   right: calc(100% + 1px);
 }
 
-/*-------------------
+/* -------------------
      Horizontal
---------------------*/
-
+-------------------- */
 .ui.horizontal.labels .label,
 .ui.horizontal.label {
   margin: 0 0.5em 0 0;
@@ -1867,10 +1897,9 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
   text-align: center;
 }
 
-/*-------------------
-         Circular
-  --------------------*/
-
+/* -------------------
+           Circular
+    -------------------- */
 .ui.circular.labels .label,
 .ui.circular.label {
   min-width: 2em;
@@ -1890,17 +1919,16 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
   vertical-align: baseline;
 }
 
-/*-------------------
-         Pointing
-  --------------------*/
-
+/* -------------------
+           Pointing
+    -------------------- */
 .ui.pointing.label {
   position: relative;
 }
 .ui.attached.pointing.label {
   position: absolute;
 }
-.ui.pointing.label:before {
+.ui.pointing.label::before {
   background-color: inherit;
   background-image: inherit;
   border-width: 0;
@@ -1909,78 +1937,67 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
 }
 
 /* Arrow */
-.ui.pointing.label:before {
+.ui.pointing.label::before {
   position: absolute;
-  content: '';
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  content: "";
+  transform: rotate(45deg);
   background-image: none;
   z-index: 2;
   width: 0.6666em;
   height: 0.6666em;
-  -webkit-transition: none;
   transition: none;
 }
 
-/*--- Above ---*/
-
+/* --- Above --- */
 .ui.pointing.label,
 .ui[class*="pointing above"].label {
   margin-top: 1em;
 }
-.ui.pointing.label:before,
-.ui[class*="pointing above"].label:before {
+.ui.pointing.label::before,
+.ui[class*="pointing above"].label::before {
   border-width: 1px 0 0 1px;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 0;
   left: 50%;
 }
 
-/*--- Below ---*/
-
+/* --- Below --- */
 .ui[class*="bottom pointing"].label,
 .ui[class*="pointing below"].label {
   margin-top: 0;
   margin-bottom: 1em;
 }
-.ui[class*="bottom pointing"].label:before,
-.ui[class*="pointing below"].label:before {
+.ui[class*="bottom pointing"].label::before,
+.ui[class*="pointing below"].label::before {
   border-width: 0 1px 1px 0;
-  top: auto;
   right: auto;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 100%;
   left: 50%;
 }
 
-/*--- Left ---*/
-
+/* --- Left --- */
 .ui[class*="left pointing"].label {
   margin-top: 0;
   margin-left: 0.6666em;
 }
-.ui[class*="left pointing"].label:before {
+.ui[class*="left pointing"].label::before {
   border-width: 0 0 1px 1px;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
   top: 50%;
   left: 0;
 }
 
-/*--- Right ---*/
-
+/* --- Right --- */
 .ui[class*="right pointing"].label {
   margin-top: 0;
   margin-right: 0.6666em;
 }
-.ui[class*="right pointing"].label:before {
+.ui[class*="right pointing"].label::before {
   border-width: 1px 1px 0 0;
-  -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
-          transform: translateX(50%) translateY(-50%) rotate(45deg);
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
   right: 0;
   bottom: auto;
@@ -1989,72 +2006,62 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
 
 /* Basic Pointing */
 
-/*--- Above ---*/
-
-.ui.basic.pointing.label:before,
-.ui.basic[class*="pointing above"].label:before {
+/* --- Above --- */
+.ui.basic.pointing.label::before,
+.ui.basic[class*="pointing above"].label::before {
   margin-top: -1px;
 }
 
-/*--- Below ---*/
-
-.ui.basic[class*="bottom pointing"].label:before,
-.ui.basic[class*="pointing below"].label:before {
+/* --- Below --- */
+.ui.basic[class*="bottom pointing"].label::before,
+.ui.basic[class*="pointing below"].label::before {
   bottom: auto;
   top: 100%;
   margin-top: 1px;
 }
 
-/*--- Left ---*/
-
-.ui.basic[class*="left pointing"].label:before {
+/* --- Left --- */
+.ui.basic[class*="left pointing"].label::before {
   top: 50%;
   left: -1px;
 }
 
-/*--- Right ---*/
-
-.ui.basic[class*="right pointing"].label:before {
+/* --- Right --- */
+.ui.basic[class*="right pointing"].label::before {
   top: 50%;
   right: -1px;
 }
 
-/*------------------
-     Floating Label
-  -------------------*/
-
+/* ------------------
+       Floating Label
+    ------------------- */
 .ui.floating.label {
   position: absolute;
   z-index: 100;
   top: -1em;
   right: 0;
   white-space: nowrap;
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
+  transform: translateX(50%);
 }
 .ui.right.aligned.floating.label {
-  -webkit-transform: translateX(1.2em);
-          transform: translateX(1.2em);
+  transform: translateX(1.2em);
 }
 .ui.left.floating.label {
   left: 0;
   right: auto;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .ui.left.aligned.floating.label {
-  -webkit-transform: translateX(-1.2em);
-          transform: translateX(-1.2em);
+  transform: translateX(-1.2em);
 }
 .ui.bottom.floating.label {
   top: auto;
   bottom: -1em;
 }
 
-/*-------------------
+/* -------------------
         Sizes
---------------------*/
-
+-------------------- */
 .ui.labels .label,
 .ui.label {
   font-size: 0.85714286rem;

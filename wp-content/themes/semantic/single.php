@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
 <div class="ui container">
-	<div class="ui inverted segment" style="min-height: 700px; margin-top: 2vh;">
+	<div class="ui segment" style="min-height: 700px; margin-top: 2vh;">
 	<?php while ( have_posts() ) : the_post();?>
 		<h2 class="ui header">
-			<i class="huge music icon"></i>
+			<i class="big newspaper outline icon"></i>
 		  <div class="content">
 		    <?php the_title(); ?>
 		  </div>

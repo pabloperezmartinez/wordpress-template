@@ -5,15 +5,17 @@
 
 @red            : #E83B3D;
 @orange         : #E39149;
-@blue           : #4D86A0;
+/*@blue           : #4D86A0;*/
 @black          : #1d1d1b;
-@primaryColor   : @red;
+@primaryColor   : @blue;
 @secondaryColor : @black;
 
 /*-------------------
      Page
 --------------------*/
+/*
 @pageBackground      : @black;
+*/
 
 
 /*-------------------
