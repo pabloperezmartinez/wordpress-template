@@ -27,3 +27,11 @@ Se pueden realizar distintas modificaciones en el tema como colores y otras pers
 Se pueden agregar colores en el archivo `semantic/src/site/globals/site.variables`. A continuación se añaden las guías desde Fomantic UI: https://fomantic-ui.com/usage/theming.html
 ## Clases CSS Personalizadas
 Se pueden agregar clases personalizadas en el archivo `semantic/src/site/globals/site.overrides`
+## Compilación
+Una vez realizada las modificaciones se debe ejecutar en el terminal los siguientes:
+~~~
+cd semantic/
+~~~
+~~~
+npx gulp build
+~~~
